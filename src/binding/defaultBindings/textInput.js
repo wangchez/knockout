@@ -63,10 +63,6 @@ if (firefoxVersion) {
     }
 
     var registerForAutoFillEvent = function (element, handler) {
-        if (element.ownerDocument != document || element.autocomplete == "off" || (element.form && element.form.autocomplete == "off")) {
-            return;
-        }
-
         textInputHandlers.push(handler);
         ko.utils.domNodeDisposal.addDisposeCallback(element, function() {
             ko.utils.arrayRemoveItem(textInputHandlers, handler);
